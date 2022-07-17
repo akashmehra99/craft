@@ -128,8 +128,6 @@ const CraftProvider: FC<Props> = ({ children }) => {
     setSelectedBudget(budget);
   };
 
-  const updateTrends = () => {};
-
   return (
     <CraftContext.Provider
       value={{
@@ -142,8 +140,7 @@ const CraftProvider: FC<Props> = ({ children }) => {
         selectedBudget,
         updateAccount,
         updateTransaction,
-        updateBudget,
-        updateTrends,
+        updateBudget
       }}
     >
       {children}

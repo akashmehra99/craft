@@ -7,7 +7,6 @@ import Trends from "../trends/trends.components";
 import CraftProvider from "../../context/craft.context";
 
 const Container: FC = () => {
-  const [trends] = useState([]);
 
   return (
     <>
@@ -15,7 +14,7 @@ const Container: FC = () => {
           <Accounts />
           <Transactions />
           <Budgets />
-          <Trends trends={trends} />
+          <Trends />
         </CraftProvider>
     </>
   );

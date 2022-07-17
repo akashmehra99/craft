@@ -20,5 +20,4 @@ export type CraftContextType = {
     updateAccount: (accountId: string) => void;
     updateTransaction: (transactionId: string) => void;
     updateBudget: (budgetId: string) => void;
-    updateTrends: (trends: any) => void;
 }

@@ -1,13 +1,9 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext } from "react";
 
-interface TrendsProps {
-  trends: any;
-}
-const Trends: FC<TrendsProps> = (props: TrendsProps) => {
-  const [trends, setTrends] = useState([]);
-  useEffect(() => {
-    setTrends(props.trends);
-  }, [props.trends]);
+import { CraftContext } from "../../context/craft.context";
+import { CraftContextType } from "../../@types/craft";
+const Trends: FC = () => {
+  const {trends} = useContext(CraftContext) as CraftContextType;
   return (
     <>
       {trends.length > 0 && (
@@ -19,7 +15,7 @@ const Trends: FC<TrendsProps> = (props: TrendsProps) => {
             </div>
             {trends.map((trend: any) => {
               return (
-              <div className="accoutDetails">
+              <div key={trend.id} className="accoutDetails">
                 <div>{trend.id}</div>
                 <div>{trend.name}</div>
               </div>                
