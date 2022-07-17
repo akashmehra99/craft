@@ -1,0 +1,41 @@
+{
+  "accounts": [
+    { "id": "acc_1", "name": "Account 1" },
+    { "id": "acc_2", "name": "Account 2" },
+    { "id": "acc_3", "name": "Account 3" }
+  ],
+  "transactions": [
+    { "id": "transaction_1", "name": "Transaction 1", "accountId": "acc_1" },
+    { "id": "transaction_2", "name": "Transaction 2", "accountId": "acc_1" },
+    { "id": "transaction_3", "name": "Transaction 3", "accountId": "acc_1" },
+    { "id": "transaction_4", "name": "Transaction 4", "accountId": "acc_1" },
+    { "id": "transaction_5", "name": "Transaction 5", "accountId": "acc_2" },
+    { "id": "transaction_6", "name": "Transaction 6", "accountId": "acc_2" },
+    { "id": "transaction_7", "name": "Transaction 7", "accountId": "acc_2" },
+    { "id": "transaction_8", "name": "Transaction 8", "accountId": "acc_3" },
+    { "id": "transaction_9", "name": "Transaction 9", "accountId": "acc_3" },
+    { "id": "transaction_10", "name": "Transaction 10", "accountId": "acc_3" },
+    { "id": "transaction_11", "name": "Transaction 11", "accountId": "acc_3" },
+    { "id": "transaction_12", "name": "Transaction 12", "accountId": "acc_2" }
+  ],
+  "budgets": [
+    { "id": "budget_1", "name": "Budget 1" },
+    { "id": "budget_2", "name": "Budget 2" },
+    { "id": "budget_3", "name": "Budget 3" },
+    { "id": "budget_4", "name": "Budget 4" }
+  ],
+  "trends": [
+    { "id": "trends_1", "name": "Trends 1", "budgetId": "budget_1", "transactionId": "transaction_1" },
+    { "id": "trends_2", "name": "Trends 2", "budgetId": "budget_2", "transactionId": "transaction_2" },
+    { "id": "trends_3", "name": "Trends 3", "budgetId": "budget_3", "transactionId": "transaction_3" },
+    { "id": "trends_4", "name": "Trends 4", "budgetId": "budget_4", "transactionId": "transaction_4" },
+    { "id": "trends_5", "name": "Trends 5", "budgetId": "budget_1", "transactionId": "transaction_5" },
+    { "id": "trends_6", "name": "Trends 6", "budgetId": "budget_2", "transactionId": "transaction_6" },
+    { "id": "trends_7", "name": "Trends 7", "budgetId": "budget_3", "transactionId": "transaction_7" },
+    { "id": "trends_8", "name": "Trends 8", "budgetId": "budget_4", "transactionId": "transaction_8" },
+    { "id": "trends_8", "name": "Trends 9", "budgetId": "budget_1", "transactionId": "transaction_9" },
+    { "id": "trends_10", "name": "Trends 10", "budgetId": "budget_2", "transactionId": "transaction_10" },
+    { "id": "trends_11", "name": "Trends 11", "budgetId": "budget_3", "transactionId": "transaction_11" },
+    { "id": "trends_12", "name": "Trends 12", "budgetId": "budget_4", "transactionId": "transaction_12" }
+  ]
+}
