@@ -14,8 +14,8 @@ const CraftProvider: FC<Props> = ({ children }) => {
   const [budgets, setBudgets] = useState([]);
   const [trends, setTrends] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState({});
-  const [selectedTransaction, setSelectedTransaction] = useState({});
-  const [selectedBudget, setSelectedBudget] = useState({});
+  const [selectedTransaction, setSelectedTransaction] = useState({id: ''});
+  const [selectedBudget, setSelectedBudget] = useState({id: ''});
   useEffect(() => {
         fetchAccounts();
   }, []);
@@ -36,14 +36,7 @@ const CraftProvider: FC<Props> = ({ children }) => {
       })
       .then((accountData: any) => {
         console.log("Account Data -> ", accountData);
-        Promise.all([fetchTransactions(accountData), fetchBudgets()]).then(
-          (transactionBudgetData: any) => {
-            const [transactionData, budgetData] = transactionBudgetData;
-            setSelectedTransaction(transactionData[0]);
-            setSelectedBudget(budgetData[0]);
-            fetchTrends(transactionData[0]?.id, budgetData[0]?.id);
-          }
-        );
+        updateAccount(accountData);
       })
       .catch((error: any) => {
         console.error("Error in getting accounts => ", JSON.stringify(error));
@@ -116,16 +109,35 @@ const CraftProvider: FC<Props> = ({ children }) => {
       });
   };
 
+  const onAccountUpdate = (account: any) => {
+    Promise.all([fetchTransactions(account), fetchBudgets()]).then(
+      (transactionBudgetData: any) => {
+        const [transactionData, budgetData] = transactionBudgetData;
+        setSelectedTransaction(transactionData[0]);
+        setSelectedBudget(budgetData[0]);
+        onUpdateTransactionOrBudget(transactionData[0], budgetData[0]);
+      }
+    );
+  }
+
+  const onUpdateTransactionOrBudget = (transaction: any, budget: any) =>{
+    fetchTrends(transaction?.id, budget?.id);
+  }
+
   const updateAccount = (account: any) => {
     setSelectedAccount(account);
+    onAccountUpdate(account);
   };
 
   const updateTransaction = (transaction: any) => {
     setSelectedTransaction(transaction);
+    fetchTrends(transaction?.id, selectedBudget?.id);
+
   };
 
   const updateBudget = (budget: any) => {
     setSelectedBudget(budget);
+    fetchTrends(selectedTransaction?.id, selectedBudget?.id);
   };
 
   return (
