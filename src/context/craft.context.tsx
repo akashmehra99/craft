@@ -137,7 +137,7 @@ const CraftProvider: FC<Props> = ({ children }) => {
 
   const updateBudget = (budget: any) => {
     setSelectedBudget(budget);
-    fetchTrends(selectedTransaction?.id, selectedBudget?.id);
+    fetchTrends(selectedTransaction?.id, budget?.id);
   };
 
   return (
